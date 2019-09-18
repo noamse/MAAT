@@ -190,6 +190,8 @@ for Isim=1:1:Nsim
                 % sexagesimal to numeric 
                 RA(Isim) = celestial.coo.convertdms(CellRA{1},'SH','r').*convert.angular('rad',InPar.OutUnits);  % deg
             end
+        else
+            RA(Isim) = CellRA{1};
         end
     end
         
@@ -205,6 +207,9 @@ for Isim=1:1:Nsim
                 % sexagesimal to numeric 
                 Dec(Isim) = celestial.coo.convertdms(CellDec{1},'SH','r').*convert.angular('rad',InPar.OutUnits);  % deg
             end
+        else
+            Dec(Isim) = CellDec{1};
+
         end
     end
         

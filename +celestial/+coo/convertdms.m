@@ -148,7 +148,9 @@ switch InType
     N       = size(InData,1);
     RadData = zeros(N,1);
     for I=1:1:N
-       [H,M,S] = strread(InData(I,:),'%2d:%2d:%f');
+       PlusSplit  = split(InData(I,:),'+');
+       
+       [H,M,S] = strread(PlusSplit{end},'%2d:%2d:%f');
        RadData(I) = (H + M./60 + S./3600).*15./RAD;
     end
  case {'SHn'}

@@ -112,6 +112,7 @@ DefV.ReScaleFactor      = 2;
 DefV.BlockSize          = [1024 1024]; %[512 512]; %[1024 1024]; %'full';
 DefV.BufferSize         = 200;
 
+DefV.ImCenter           = [];
 %--- Fitting ---
 %DefV.UseCase_TranC      = {'affine',             5}; %{'affine_tt_cheby2_4', 100; 'affine_tt_cheby2_3', 70; 'affine_tt',          20; 'affine',             5};
 DefV.UseCase_TranC      = {'affine_tt_cheby2_4', 100; 'affine_tt_cheby2_3', 70; 'affine_tt',          10; 'affine',             5};
@@ -476,7 +477,11 @@ for Isim=1:1:Nsim
                             'Std','MeanErr','BestRot','BestFlip'},Nsub,1);
                         
        ShiftRes = nan(Nsub,2);
-       ImCenter = ImSize(Isim,:).*0.5;
+       if isempty(InPar.ImCenter)
+            ImCenter = ImSize(Isim,:).*0.5;
+       else
+           ImCenter=InPar.ImCenter;
+       end
        for Isub=1:1:Nsub
            %Isub
             % for each sub region

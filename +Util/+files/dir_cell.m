@@ -17,7 +17,7 @@ Dir   = Util.struct.struct_def({'name','folder','date','bytes','isdir','datenum'
 %Dir   = Util.struct.struct_def({'name','date','bytes','isdir','datenum'},Ncell,1);
 
 for Icell=1:1:Ncell
-    if (exist(Cell{Icell},'file')>0 || exist(Cell{Icell},'dir')>0)
+    if (exist(Cell{Icell},'file')>0 && exist(Cell{Icell},'dir')>0)
         dir(Cell{Icell})
         Dir(Icell) = dir(Cell{Icell});        
     end
