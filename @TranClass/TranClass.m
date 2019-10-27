@@ -683,7 +683,7 @@ classdef TranClass
                 Par       = ones(1,TotalNPar);
             else
                 % read parameters into a vector
-                Par = cell2mat(TranC(IC).(ParField){Idim});
+                Par = cell2mat(TranC(IC).(ParField){Idim}(:))';
             end
                 
         end

@@ -14,7 +14,7 @@ function Sim=astcat2sim(AstC,Sim)
 % Reliable: 2
 %--------------------------------------------------------------------------
 
-CopyFields = {'Cat','Col','ColCell','ColUnits','SortedBy','SortedByCol'};
+CopyFields = {'Cat','Col','ColCell','ColUnits','SortedBy','SortedByCol','Header','UserData','WCS'};
 
 if (nargin==1),
     Sim = SIM(size(AstC));
